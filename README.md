@@ -1,4 +1,4 @@
-# code-with-quarkus
+# Users management Service
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
