@@ -7,12 +7,11 @@ import jakarta.ws.rs.POST
 import jakarta.ws.rs.Path
 import jakarta.ws.rs.Produces
 import jakarta.ws.rs.core.MediaType
-import physic.ai.domain.UserProfile
+import physic.ai.domain.UserProfileEntity
 import physic.ai.services.UserService
 
 @Path("/api/v1/user")
 class UserResource {
-
     @Inject
     @field: Default
     lateinit var userService: UserService
@@ -24,5 +23,5 @@ class UserResource {
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)
-    fun registerUser(userProfile: UserProfile) = userService.registerUser(userProfile)
+    fun registerUser(userProfileEntity: UserProfileEntity) = userService.registerUser(userProfileEntity)
 }

@@ -3,7 +3,7 @@ package physic.ai.services
 import jakarta.enterprise.context.ApplicationScoped
 import jakarta.enterprise.inject.Default
 import jakarta.inject.Inject
-import physic.ai.domain.UserProfile
+import physic.ai.domain.UserProfileEntity
 import physic.ai.domain.contracts.IUserProfileDao
 
 @ApplicationScoped
@@ -13,12 +13,12 @@ class UserService {
     @field: Default
     lateinit var userProfileDao: IUserProfileDao
 
-    fun getUserProfile(username: String): UserProfile {
+    fun getUserProfile(username: String): UserProfileEntity {
          return userProfileDao.getUserProfile(username)
     }
 
-    fun registerUser(userProfile: UserProfile) {
-        return userProfileDao.registerUser(userProfile)
+    fun registerUser(userProfileEntity: UserProfileEntity) {
+        return userProfileDao.registerUser(userProfileEntity)
     }
 
     fun updateUserProfile(username: String, email: String, premium: Boolean) {

@@ -1,10 +1,10 @@
 package physic.ai.domain.contracts
 
-import physic.ai.domain.UserProfile
+import physic.ai.domain.UserProfileEntity
 
 interface IUserProfileDao {
-    fun getUserProfile(username: String): UserProfile
-    fun registerUser(user: UserProfile)
+    fun getUserProfile(username: String): UserProfileEntity
+    fun registerUser(user: UserProfileEntity)
     fun unregisterUser(username: String)
-    fun updateUserProfile(username: String, email: String, premium: Boolean)
+    fun updateUserProfile(username: String, email: String?, premium: Boolean?)
 }
