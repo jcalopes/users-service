@@ -21,7 +21,7 @@ class UserService {
         return userProfileDao.registerUser(userProfileEntity)
     }
 
-    fun updateUserProfile(username: String, email: String, premium: Boolean) {
+    fun updateUserProfile(username: String, email: String?, premium: Boolean?) {
         return userProfileDao.updateUserProfile(username, email, premium)
     }
 

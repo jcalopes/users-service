@@ -1,5 +1,5 @@
 ####
-# This Dockerfile is used in order to build a container that runs the Quarkus application in JVM mode
+# This setup.sh is used in order to build a container that runs the Quarkus application in JVM mode
 #
 # Before building the container image run:
 #
@@ -7,7 +7,7 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile -t quarkus/code-with-quarkus-jvm .
+# docker build -f src/main/docker/setup.sh -t quarkus/code-with-quarkus-jvm .
 #
 # Then run the container using:
 #

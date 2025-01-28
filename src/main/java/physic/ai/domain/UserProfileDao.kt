@@ -7,13 +7,15 @@ import org.bson.conversions.Bson
 import physic.ai.domain.contracts.IUserProfileDao
 import com.mongodb.client.model.Filters.eq
 import com.mongodb.client.model.Updates
+import jakarta.enterprise.context.ApplicationScoped
 
+@ApplicationScoped
 class UserProfileDao: IUserProfileDao {
     @Inject
     lateinit var mongoClient: MongoClient
 
     private val userCollection: MongoCollection<UserProfileEntity> by lazy {
-        mongoClient.getDatabase("test").getCollection("users", UserProfileEntity::class.java)
+        mongoClient.getDatabase("physical").getCollection("users", UserProfileEntity::class.java)
     }
 
     override fun getUserProfile(username: String): UserProfileEntity {
