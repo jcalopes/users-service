@@ -21,24 +21,19 @@ class UserResource {
     lateinit var userService: UserService
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
     @Path("/{username}")
     fun getUserProfile(username: String) = userService.getUserProfile(username)
 
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
     fun registerUser(userProfileEntity: UserProfileEntity) = userService.registerUser(userProfileEntity)
 
     @PUT
-    @Produces(MediaType.TEXT_PLAIN)
     fun updateUserProfile(userUpdatedDto: UserUpdatedDto) {
       val (username, email, premium) = userUpdatedDto
       return userService.updateUserProfile(username, email, premium)
     }
 
     @DELETE
-    @Produces(MediaType.TEXT_PLAIN)
     fun unregisterUser(username: String) = userService.unregisterUser(username)
 
 }

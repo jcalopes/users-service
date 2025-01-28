@@ -37,7 +37,7 @@ class UserProfileDao: IUserProfileDao {
         if (email != null) updates.add(Updates.set("email", email))
         if (premium != null) updates.add(Updates.set("premium", premium))
 
-        userCollection.updateOne(filter, Updates.combine(updates)).getModifiedCount()
+        userCollection.updateOne(filter, Updates.combine(updates))
 
     }
 }
