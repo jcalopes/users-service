@@ -28,7 +28,9 @@ class UserProfileDao: IUserProfileDao {
     }
 
     override fun unregisterUser(username: String) {
-        TODO("Not yet implemented")
+        val filter: Bson = eq("username", username)
+        val update = Updates.set("active", false)
+        userCollection.updateOne(filter, update)
     }
 
     override fun updateUserProfile(username: String, email: String?, premium: Boolean?) {
