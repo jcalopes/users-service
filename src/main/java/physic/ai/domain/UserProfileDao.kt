@@ -2,20 +2,24 @@ package physic.ai.domain
 
 import com.mongodb.client.MongoClient
 import com.mongodb.client.MongoCollection
-import jakarta.inject.Inject
-import org.bson.conversions.Bson
-import physic.ai.domain.contracts.IUserProfileDao
 import com.mongodb.client.model.Filters.eq
 import com.mongodb.client.model.Updates
 import jakarta.enterprise.context.ApplicationScoped
+import jakarta.inject.Inject
+import org.bson.conversions.Bson
+import physic.ai.domain.contracts.IUserProfileDao
+import physic.ai.integration.MongoConfig
 
 @ApplicationScoped
 class UserProfileDao: IUserProfileDao {
     @Inject
     lateinit var mongoClient: MongoClient
 
+    @Inject
+    lateinit var mongoConfig: MongoConfig
+
     private val userCollection: MongoCollection<UserProfileEntity> by lazy {
-        mongoClient.getDatabase("physical").getCollection("users", UserProfileEntity::class.java)
+        mongoClient.getDatabase(mongoConfig.dbName()).getCollection(mongoConfig.collectionName(), UserProfileEntity::class.java)
     }
 
     override fun getUserProfile(username: String): UserProfileEntity {
